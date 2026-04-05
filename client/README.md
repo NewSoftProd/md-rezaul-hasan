@@ -1,7 +1,33 @@
 # Welcome to your Lovable project
 
-## Project info
+![Project Screenshot](./public/images/projects/new_portfolio/home.png)
 
+## Screenshots
+
+### Home Page
+![Home Page](./public/images/projects/new_portfolio/home.png)
+The main landing page showcasing the portfolio introduction and navigation.
+
+### Skills Section
+![Skills Section](./public/images/projects/new_portfolio/skills.png)
+Display of technical skills and expertise areas.
+
+### Projects Showcase
+![Projects Showcase](./public/images/projects/new_portfolio/projects_with_completed.png)
+![Projects Showcase](./public/images/projects/new_portfolio/projects.png)
+Gallery of featured projects with descriptions and links.
+
+### Experience Section
+![Work Experience](./public/images/projects/new_portfolio/work_exp.png)
+This section shows my work experiences.
+
+### Resume Section
+![Resume](./public/images/projects/new_portfolio/resume.png)
+A dynamic resume page demonstrating the portfolio's project detail views and skills which can help to genarate the pdf. This pdf I can send to recruiter.
+
+
+## Project info
+### Lovable information
 **URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
 
 **HostedLink**:https://md-rezaul-hasan.lovable.app
