@@ -1,5 +1,25 @@
 # Welcome to your Lovable project
 
+![Project Screenshot](./public/images/projects/new_portfolio/home.png)
+
+## Screenshots
+
+### Home Page
+![Home Page](./public/images/projects/old_portfolio/home.png)
+The main landing page showcasing the portfolio introduction and navigation.
+
+### Skills Section
+![Skills Section](./public/images/projects/old_portfolio/skills.png)
+Display of technical skills and expertise areas.
+
+### Projects Showcase
+![Projects Showcase](./public/images/projects/old_portfolio/projects.png)
+Gallery of featured projects with descriptions and links.
+
+### Sharkarbari Project
+![Sharkarbari Home](./public/images/projects/sharkarbari/home.png)
+A sample project page demonstrating the portfolio's project detail views.
+
 ## Project info
 
 **URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
