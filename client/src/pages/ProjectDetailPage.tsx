@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { projects } from "@/data/projects";
 import { Navbar } from "@/components/portfolio/Navbar";
 import { Footer } from "@/components/portfolio/Footer";
+import { ImageSlider } from "@/components/portfolio/ImageSlider";
 
 export default function ProjectDetailPage() {
   const { id } = useParams<{ id: string }>();
@@ -60,8 +61,16 @@ export default function ProjectDetailPage() {
             <p className="text-lg text-muted-foreground">{project.description}</p>
           </motion.div>
 
-          {/* Main Image */}
-          {project.imageUrl && (
+          {/* Image Gallery or Main Image */}
+          {project.imageGallery && project.imageGallery.length > 0 ? (
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+            >
+              <ImageSlider images={project.imageGallery} title={project.title} />
+            </motion.div>
+          ) : project.imageUrl ? (
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -74,7 +83,7 @@ export default function ProjectDetailPage() {
                 className="w-full object-cover max-h-96"
               />
             </motion.div>
-          )}
+          ) : null}
 
           {/* Project Info Cards */}
           <motion.div

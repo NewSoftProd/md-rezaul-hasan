@@ -49,7 +49,7 @@ export default function ResumePage() {
 
           {/* Experience */}
           <section className="mb-8">
-            <h2 className="mb-4 font-serif text-xl text-foreground">Experience</h2>
+            <h2 className="mb-4 font-serif text-xl text-foreground">Experiences</h2>
             <div className="space-y-6">
               {resumeData.experience.map((exp) => (
                 <div key={exp.title + exp.company}>
@@ -77,7 +77,7 @@ export default function ResumePage() {
                   <p className="font-semibold text-foreground">{edu.degree}</p>
                   <p className="text-sm text-muted-foreground">{edu.school}</p>
                 </div>
-                <span className="text-xs text-muted-foreground">{edu.year}</span>
+                <span className="text-xs text-muted-foreground">{edu.startYear} — {edu.endYear}</span>
               </div>
             ))}
           </section>

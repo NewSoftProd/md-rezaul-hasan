@@ -4,14 +4,14 @@ import { skillCategories } from "@/data/skills";
 import { projects } from "@/data/projects";
 
 export const resumeData = {
-  name: "John Developer",
+  name: "MD. Rezaul Hasan",
   title: "Senior Software Engineer",
   summary:
-    "Results-driven software engineer with 5+ years of experience building scalable web applications. Passionate about clean architecture, developer experience, and shipping products that solve real problems.",
+    "Experienced software engineer with 8+ years in web development, specializing in React, Angular, and ASP.NET Core, and cloud technologies. Proven track record of leading teams and delivering scalable solutions. Passionate about mentoring and continuous learning.",
   contact: {
-    email: "john@example.com",
-    location: "San Francisco, CA",
-    website: "johndeveloper.com",
+    email: "rezaul@example.com",
+    location: "Stockholm, Sweden",
+    website: "rezaulhasan.com",
   },
   experience: experiences.map((exp) => ({
     title: exp.title,
@@ -22,7 +22,8 @@ export const resumeData = {
   education: educations.map((edu) => ({
     degree: edu.title,
     school: edu.company,
-    year: edu.startDate,
+    startYear: edu.startDate,
+    endYear: edu.endDate,
   })),
   projects: projects.map((proj) => ({
     title: proj.title,

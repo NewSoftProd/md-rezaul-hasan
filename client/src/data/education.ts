@@ -13,7 +13,7 @@ export const educations: Education[] = [
     id: "1",
     title: "Master's degree in Software engineering of distributed systems",
     company: "KTH Royal Institute of Technology",
-    startDate: "March 2025",
+    startDate: "August 2019",
     endDate: "Pause",
     description:
       "Software engineer specializing in distributed systems architecture with a focus on blockchain technologies. Experienced in building fault-tolerant, scalable systems that handle consensus mechanisms, peer-to-peer networking, and decentralized data management. Skilled in developing smart contracts, implementing cryptographic protocols, and designing distributed applications that maintain consistency and availability across network partitions.",
