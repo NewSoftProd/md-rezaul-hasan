@@ -27,7 +27,7 @@ A dynamic resume page demonstrating the portfolio's project detail views and ski
 
 
 ## Project info
-# Lovable information
+### Lovable information
 **URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
 
 **HostedLink**:https://md-rezaul-hasan.lovable.app
