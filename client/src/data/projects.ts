@@ -22,7 +22,7 @@ export const projects: Project[] = [
   {
     id: "1",
     title: "Rental Management Platform",
-    imageUrl: "/images/projects/sharkarbari/Home.png",
+    imageUrl: "/images/projects/sharkarbari/home.png",
     imageGallery: [
       "/images/projects/sharkarbari/home.png",
       "/images/projects/sharkarbari/content_without_footer.png",
@@ -63,7 +63,7 @@ export const projects: Project[] = [
   {
     id: "2",
     title: "E-Commerce Storefront",
-   imageUrl: "/images/projects/saas-analytics.png",
+   imageUrl: "/images/projects/new_portfolio/projects.png",
     description: "Headless commerce solution with server-side rendering, cart management, and Stripe integration.",
     fullDescription: "A modern e-commerce platform built with a headless architecture, enabling seamless shopping experiences across web and mobile. Features server-side rendering for superior performance, integrated payment processing, and real-time inventory management.",
     techStack: ["Next.js", "Tailwind", "Stripe", "Supabase"],
@@ -98,7 +98,7 @@ export const projects: Project[] = [
   {
     id: "3",
     title: "Task Management CLI",
-    imageUrl: "/images/projects/saas-analytics.png",
+    imageUrl: "/images/projects/new_portfolio/projects_with_completed.png",
     description: "A fast, keyboard-driven CLI tool for managing tasks and projects directly from the terminal.",
     fullDescription: "A lightweight command-line interface built in Rust for efficient task and project management. Designed for developers who prefer terminal-based workflows with vim-like keybindings and intuitive commands.",
     techStack: ["Rust", "SQLite", "Clap"],
@@ -175,7 +175,7 @@ export const projects: Project[] = [
   {
     id: "5",
     title: "Personal Blog Platform",
-  imageUrl: "/images/projects/saas-analytics.png",
+  imageUrl: "/images/projects/new_portfolio/home.png",
     description: "A lightweight, static blog platform built with Next.js and Markdown support.",
     fullDescription: "A minimalist blogging platform for publishing technical articles and thoughts. Features Markdown support, syntax highlighting, and fast static generation for optimal performance.",
     techStack: ["Next.js", "Markdown", "Tailwind"],
