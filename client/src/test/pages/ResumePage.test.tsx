@@ -1,6 +1,6 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
-import { render, screen } from "@testing-library/react";
-import { BrowserRouter } from "react-router-dom";
+import { screen } from "@testing-library/react";
+import { renderWithProviders } from "@/test/test-utils";
 import ResumePage from "@/pages/ResumePage";
 import * as resumeModule from "@/data/resume";
 
@@ -88,107 +88,63 @@ describe("ResumePage", () => {
   });
 
   it("renders the page with correct background", () => {
-    const { container } = render(
-      <BrowserRouter>
-        <ResumePage />
-      </BrowserRouter>
-    );
+    const { container } = renderWithProviders(<ResumePage />);
     const mainDiv = container.querySelector(".min-h-screen.bg-background");
     expect(mainDiv).toBeInTheDocument();
   });
 
   it("renders Navbar component", () => {
-    render(
-      <BrowserRouter>
-        <ResumePage />
-      </BrowserRouter>
-    );
+    renderWithProviders(<ResumePage />);
     expect(screen.getByTestId("navbar")).toBeInTheDocument();
   });
 
   it("displays Download PDF button", () => {
-    render(
-      <BrowserRouter>
-        <ResumePage />
-      </BrowserRouter>
-    );
+    renderWithProviders(<ResumePage />);
     const downloadBtn = screen.getByTestId("download-btn");
     expect(downloadBtn).toBeInTheDocument();
     expect(downloadBtn).toHaveTextContent(/Download PDF/i);
   });
 
   it("hides navbar and download button in print view", () => {
-    const { container } = render(
-      <BrowserRouter>
-        <ResumePage />
-      </BrowserRouter>
-    );
+    const { container } = renderWithProviders(<ResumePage />);
     const printHiddenDiv = container.querySelector(".print\\:hidden");
     expect(printHiddenDiv).toBeInTheDocument();
   });
 
   it("displays resume owner's name as page header", () => {
-    render(
-      <BrowserRouter>
-        <ResumePage />
-      </BrowserRouter>
-    );
+    renderWithProviders(<ResumePage />);
     expect(screen.getByText("John Doe")).toBeInTheDocument();
   });
 
   it("displays job title", () => {
-    render(
-      <BrowserRouter>
-        <ResumePage />
-      </BrowserRouter>
-    );
+    renderWithProviders(<ResumePage />);
     expect(screen.getByText("Full Stack Developer")).toBeInTheDocument();
   });
 
   it("displays contact email", () => {
-    render(
-      <BrowserRouter>
-        <ResumePage />
-      </BrowserRouter>
-    );
+    renderWithProviders(<ResumePage />);
     expect(screen.getByText(/john@example.com/)).toBeInTheDocument();
   });
 
   it("displays contact location", () => {
-    render(
-      <BrowserRouter>
-        <ResumePage />
-      </BrowserRouter>
-    );
+    renderWithProviders(<ResumePage />);
     expect(screen.getByText(/San Francisco, CA/)).toBeInTheDocument();
   });
 
   it("displays contact website", () => {
-    render(
-      <BrowserRouter>
-        <ResumePage />
-      </BrowserRouter>
-    );
+    renderWithProviders(<ResumePage />);
     expect(screen.getByText(/johndoe.com/)).toBeInTheDocument();
   });
 
   it("displays professional summary section", () => {
-    render(
-      <BrowserRouter>
-        <ResumePage />
-      </BrowserRouter>
-    );
+    renderWithProviders(<ResumePage />);
     const summarySection = screen.getByText(/Summary/);
     expect(summarySection).toBeInTheDocument();
     expect(screen.getByText("Experienced developer with passion for building web applications.")).toBeInTheDocument();
   });
 
   it("displays Experiences section with all entries", () => {
-    render(
-      <BrowserRouter>
-        <ResumePage />
-      </BrowserRouter>
-    );
+    renderWithProviders(<ResumePage />);
     const experienceSection = screen.getByText(/Experiences/);
     expect(experienceSection).toBeInTheDocument();
     expect(screen.getByText("Senior Developer")).toBeInTheDocument();
@@ -197,92 +153,56 @@ describe("ResumePage", () => {
   });
 
   it("displays experience highlights as bullet points", () => {
-    render(
-      <BrowserRouter>
-        <ResumePage />
-      </BrowserRouter>
-    );
+    renderWithProviders(<ResumePage />);
     expect(screen.getByText("Led team of 5 developers")).toBeInTheDocument();
     expect(screen.getByText("Improved performance by 40%")).toBeInTheDocument();
   });
 
   it("displays Education section", () => {
-    render(
-      <BrowserRouter>
-        <ResumePage />
-      </BrowserRouter>
-    );
+    renderWithProviders(<ResumePage />);
     expect(screen.getByText(/Education/)).toBeInTheDocument();
     expect(screen.getByText("BS in Computer Science")).toBeInTheDocument();
     expect(screen.getByText("University of Tech")).toBeInTheDocument();
   });
 
   it("displays education start and end years", () => {
-    render(
-      <BrowserRouter>
-        <ResumePage />
-      </BrowserRouter>
-    );
+    renderWithProviders(<ResumePage />);
     expect(screen.getByText(/2018 — 2022/)).toBeInTheDocument();
   });
 
   it("displays Projects section", () => {
-    render(
-      <BrowserRouter>
-        <ResumePage />
-      </BrowserRouter>
-    );
+    renderWithProviders(<ResumePage />);
     expect(screen.getByText(/Projects/)).toBeInTheDocument();
     expect(screen.getByText("Project Alpha")).toBeInTheDocument();
   });
 
   it("displays project images if available", () => {
-    render(
-      <BrowserRouter>
-        <ResumePage />
-      </BrowserRouter>
-    );
+    renderWithProviders(<ResumePage />);
     const projectImage = screen.getByAltText("Project Alpha");
     expect(projectImage).toBeInTheDocument();
     expect(projectImage).toHaveAttribute("src", "/images/project.jpg");
   });
 
   it("displays project status badge", () => {
-    render(
-      <BrowserRouter>
-        <ResumePage />
-      </BrowserRouter>
-    );
+    renderWithProviders(<ResumePage />);
     const badges = screen.getAllByTestId("badge");
     expect(badges.length).toBeGreaterThan(0);
   });
 
   it("applies correct styling to header section", () => {
-    const { container } = render(
-      <BrowserRouter>
-        <ResumePage />
-      </BrowserRouter>
-    );
+    const { container } = renderWithProviders(<ResumePage />);
     const header = container.querySelector("header");
     expect(header).toHaveClass("border-b", "border-border", "pb-6");
   });
 
   it("applies correct styling to name heading", () => {
-    const { container } = render(
-      <BrowserRouter>
-        <ResumePage />
-      </BrowserRouter>
-    );
+    const { container } = renderWithProviders(<ResumePage />);
     const h1 = container.querySelector("h1");
     expect(h1).toHaveClass("font-serif", "text-4xl", "text-foreground");
   });
 
   it("applies correct styling to section headings", () => {
-    const { container } = render(
-      <BrowserRouter>
-        <ResumePage />
-      </BrowserRouter>
-    );
+    const { container } = renderWithProviders(<ResumePage />);
     const sectionHeadings = container.querySelectorAll("h2");
     sectionHeadings.forEach((heading) => {
       expect(heading).toHaveClass("font-serif", "text-xl", "text-foreground");
@@ -290,11 +210,7 @@ describe("ResumePage", () => {
   });
 
   it("applies responsive grid layout to projects section", () => {
-    const { container } = render(
-      <BrowserRouter>
-        <ResumePage />
-      </BrowserRouter>
-    );
+    const { container } = renderWithProviders(<ResumePage />);
     // Check for responsive grid classes
     const grids = container.querySelectorAll(".grid");
     expect(grids.length).toBeGreaterThan(0);
@@ -303,11 +219,7 @@ describe("ResumePage", () => {
   it("calls window.print when download button is clicked", async () => {
     const printSpy = vi.spyOn(window, "print").mockImplementation(() => {});
     
-    render(
-      <BrowserRouter>
-        <ResumePage />
-      </BrowserRouter>
-    );
+    renderWithProviders(<ResumePage />);
 
     const downloadBtn = screen.getByTestId("download-btn");
     downloadBtn.click();
@@ -317,31 +229,19 @@ describe("ResumePage", () => {
   });
 
   it("maintains max-width container for readability", () => {
-    const { container } = render(
-      <BrowserRouter>
-        <ResumePage />
-      </BrowserRouter>
-    );
+    const { container } = renderWithProviders(<ResumePage />);
     const contentContainer = container.querySelector(".max-w-3xl");
     expect(contentContainer).toBeInTheDocument();
   });
 
   it("adds proper padding to the page", () => {
-    const { container } = render(
-      <BrowserRouter>
-        <ResumePage />
-      </BrowserRouter>
-    );
+    const { container } = renderWithProviders(<ResumePage />);
     const contentContainer = container.querySelector(".pb-24.pt-24");
     expect(contentContainer).toBeInTheDocument();
   });
 
   it("displays all resume data correctly in one render", () => {
-    render(
-      <BrowserRouter>
-        <ResumePage />
-      </BrowserRouter>
-    );
+    renderWithProviders(<ResumePage />);
 
     // Verify all sections and data are present
     expect(screen.getByText("John Doe")).toBeInTheDocument();
@@ -353,11 +253,7 @@ describe("ResumePage", () => {
   });
 
   it("renders without errors with complete resume data", () => {
-    const { container } = render(
-      <BrowserRouter>
-        <ResumePage />
-      </BrowserRouter>
-    );
+    const { container } = renderWithProviders(<ResumePage />);
     expect(container).toBeInTheDocument();
   });
 
@@ -367,20 +263,12 @@ describe("ResumePage", () => {
       projects: [],
     } as any);
 
-    const { container } = render(
-      <BrowserRouter>
-        <ResumePage />
-      </BrowserRouter>
-    );
+    const { container } = renderWithProviders(<ResumePage />);
     expect(container).toBeInTheDocument();
   });
 
   it("displays contact information with proper icons", () => {
-    const { container } = render(
-      <BrowserRouter>
-        <ResumePage />
-      </BrowserRouter>
-    );
+    const { container } = renderWithProviders(<ResumePage />);
     const contactSpans = container.querySelectorAll(".flex.items-center.gap-1");
     expect(contactSpans.length).toBeGreaterThan(0);
   });
