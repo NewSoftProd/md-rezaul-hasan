@@ -1,6 +1,6 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
-import { render, screen } from "@testing-library/react";
-import { BrowserRouter } from "react-router-dom";
+import { screen } from "@testing-library/react";
+import { renderWithProviders } from "@/test/test-utils";
 import Index from "@/pages/Index";
 
 // Mock the child components
@@ -42,93 +42,53 @@ describe("Index Page", () => {
   });
 
   it("renders the main layout with min-h-screen class", () => {
-    const { container } = render(
-      <BrowserRouter>
-        <Index />
-      </BrowserRouter>
-    );
+    const { container } = renderWithProviders(<Index />);
     const mainDiv = container.querySelector(".min-h-screen");
     expect(mainDiv).toBeInTheDocument();
   });
 
   it("renders Navbar component", () => {
-    render(
-      <BrowserRouter>
-        <Index />
-      </BrowserRouter>
-    );
+    renderWithProviders(<Index />);
     expect(screen.getByTestId("navbar")).toBeInTheDocument();
   });
 
   it("renders Hero component", () => {
-    render(
-      <BrowserRouter>
-        <Index />
-      </BrowserRouter>
-    );
+    renderWithProviders(<Index />);
     expect(screen.getByTestId("hero")).toBeInTheDocument();
   });
 
   it("renders ExperienceTimeline component", () => {
-    render(
-      <BrowserRouter>
-        <Index />
-      </BrowserRouter>
-    );
+    renderWithProviders(<Index />);
     expect(screen.getByTestId("experience")).toBeInTheDocument();
   });
 
   it("renders ProjectsShowcase component", () => {
-    render(
-      <BrowserRouter>
-        <Index />
-      </BrowserRouter>
-    );
+    renderWithProviders(<Index />);
     expect(screen.getByTestId("projects")).toBeInTheDocument();
   });
 
   it("renders SkillsSection component", () => {
-    render(
-      <BrowserRouter>
-        <Index />
-      </BrowserRouter>
-    );
+    renderWithProviders(<Index />);
     expect(screen.getByTestId("skills")).toBeInTheDocument();
   });
 
   it("renders LearningTopics component", () => {
-    render(
-      <BrowserRouter>
-        <Index />
-      </BrowserRouter>
-    );
+    renderWithProviders(<Index />);
     expect(screen.getByTestId("learning")).toBeInTheDocument();
   });
 
   it("renders EducationTimeline component", () => {
-    render(
-      <BrowserRouter>
-        <Index />
-      </BrowserRouter>
-    );
+    renderWithProviders(<Index />);
     expect(screen.getByTestId("education")).toBeInTheDocument();
   });
 
   it("renders Footer component", () => {
-    render(
-      <BrowserRouter>
-        <Index />
-      </BrowserRouter>
-    );
+    renderWithProviders(<Index />);
     expect(screen.getByTestId("footer")).toBeInTheDocument();
   });
 
   it("renders all components in correct order", () => {
-    render(
-      <BrowserRouter>
-        <Index />
-      </BrowserRouter>
-    );
+    renderWithProviders(<Index />);
 
     const navbarIndex = screen.getByTestId("navbar").parentElement?.compareDocumentPosition(screen.getByTestId("footer").parentElement!) || 0;
     
@@ -144,31 +104,19 @@ describe("Index Page", () => {
   });
 
   it("uses background styling from Tailwind", () => {
-    const { container } = render(
-      <BrowserRouter>
-        <Index />
-      </BrowserRouter>
-    );
+    const { container } = renderWithProviders(<Index />);
     const mainDiv = container.querySelector(".bg-background");
     expect(mainDiv).toBeInTheDocument();
   });
 
   it("wraps content in main tag", () => {
-    const { container } = render(
-      <BrowserRouter>
-        <Index />
-      </BrowserRouter>
-    );
+    const { container } = renderWithProviders(<Index />);
     const mainTag = container.querySelector("main");
     expect(mainTag).toBeInTheDocument();
   });
 
   it("does not display error messages or fallback UI", () => {
-    render(
-      <BrowserRouter>
-        <Index />
-      </BrowserRouter>
-    );
+    renderWithProviders(<Index />);
     expect(screen.queryByText(/error/i)).not.toBeInTheDocument();
     expect(screen.queryByText(/something went wrong/i)).not.toBeInTheDocument();
   });

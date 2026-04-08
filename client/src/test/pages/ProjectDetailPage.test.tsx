@@ -1,6 +1,6 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
-import { render, screen } from "@testing-library/react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { screen } from "@testing-library/react";
+import { renderWithProviders } from "@/test/test-utils";
 import ProjectDetailPage from "@/pages/ProjectDetailPage";
 import * as projectsModule from "@/data/projects";
 
@@ -56,16 +56,6 @@ describe("ProjectDetailPage", () => {
     imageUrl: "/images/test.jpg",
   };
 
-  const TestWrapper = ({ id }: { id: string }) => (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<div>Home</div>} />
-        <Route path="/project/:id" element={<ProjectDetailPage />} />
-      </Routes>
-      <Route path="/project/:id" component={ProjectDetailPage} />
-    </BrowserRouter>
-  );
-
   beforeEach(() => {
     vi.clearAllMocks();
   });
@@ -73,27 +63,14 @@ describe("ProjectDetailPage", () => {
   it("renders Navbar component when project exists", () => {
     vi.spyOn(projectsModule, "projects", "get").mockReturnValue([mockProject] as any);
     
-    render(
-      <BrowserRouter>
-        <Routes>
-          <Route path="/project/:id" element={<ProjectDetailPage />} />
-        </Routes>
-      </BrowserRouter>,
-      { initialRoute: `/project/${mockProject.id}` }
-    );
+    renderWithProviders(<ProjectDetailPage />, { initialRoute: `/project/${mockProject.id}` });
     // Note: This test structure needs proper routing setup
   });
 
   it("renders 'Project Not Found' when project ID does not exist", () => {
     vi.spyOn(projectsModule, "projects", "get").mockReturnValue([mockProject] as any);
 
-    const { container } = render(
-      <BrowserRouter>
-        <Routes>
-          <Route path="/project/:id" element={<ProjectDetailPage />} />
-        </Routes>
-      </BrowserRouter>
-    );
+    renderWithProviders(<ProjectDetailPage />, { initialRoute: "/project/nonexistent" });
 
     // When no matching project
   });
