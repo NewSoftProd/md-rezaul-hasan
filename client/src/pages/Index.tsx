@@ -2,6 +2,7 @@ import { Navbar } from "@/components/portfolio/Navbar";
 import { Hero } from "@/components/portfolio/Hero";
 import { ExperienceTimeline } from "@/components/portfolio/ExperienceTimeline";
 import { ProjectsShowcase } from "@/components/portfolio/ProjectsShowcase";
+import { Blogs } from "@/components/portfolio/Blogs";
 import { SkillsSection } from "@/components/portfolio/SkillsSection";
 import { LearningTopics } from "@/components/portfolio/LearningTopics";
 import { Footer } from "@/components/portfolio/Footer";
@@ -15,6 +16,7 @@ const Index = () => {
         <Hero />
         <ExperienceTimeline />
         <ProjectsShowcase />
+        <Blogs />
         <SkillsSection />
         <LearningTopics />
         <EducationTimeline />
