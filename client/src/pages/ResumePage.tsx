@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Navbar } from "@/components/portfolio/Navbar";
 import { Footer } from "@/components/portfolio/Footer";
 import { Button } from "@/components/ui/button";
@@ -7,6 +8,9 @@ import { motion } from "framer-motion";
 import { resumeData } from "@/data/resume";
 
 export default function ResumePage() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const handleDownloadPdf = () => {
     window.print();
   };
