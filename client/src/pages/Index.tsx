@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Navbar } from "@/components/portfolio/Navbar";
 import { Hero } from "@/components/portfolio/Hero";
 import { ExperienceTimeline } from "@/components/portfolio/ExperienceTimeline";
@@ -9,6 +10,9 @@ import { Footer } from "@/components/portfolio/Footer";
 import {EducationTimeline} from "@/components/portfolio/EducationTimeline";
 
 const Index = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="min-h-screen bg-background">
       <Navbar />

@@ -39,16 +39,24 @@ export function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.6 }}
-          className="mt-16"
+          className="mt-16 flex flex-col items-center gap-4 sm:flex-row sm:justify-center sm:gap-8"
         >
           <a
             href="#experience"
-            className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+            className="relative inline-flex items-center gap-2 rounded-lg border border-accent/30 bg-accent/5 px-6 py-3 text-sm font-medium text-accent transition-all hover:border-accent hover:bg-accent/10 hover:shadow-lg"
           >
             Explore my work
             <ArrowDown className="h-4 w-4 animate-bounce" />
           </a>
+          <a
+            href="#blogs"
+            className="relative inline-flex items-center gap-2 rounded-lg border border-blue-400/30 bg-blue-400/5 px-6 py-3 text-sm font-medium text-blue-600 transition-all hover:border-blue-400 hover:bg-blue-400/10 hover:shadow-lg dark:text-blue-400"
+          >
+            Explore my blogs
+            <ArrowDown className="h-4 w-4 animate-bounce" />
+          </a>
         </motion.div>
+        
       </div>
     </section>
   );

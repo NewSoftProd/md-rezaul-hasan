@@ -58,7 +58,7 @@ By following these practices, you'll write more maintainable and robust React ap
     date: "2025-04-01",
     readTime: "8 min read",
     category: "Frontend",
-    imageUrl: "/images/projects/new_portfolio/default.jpg",
+    imageUrl: "/images/blogs/new_portfolio/home.png",
     tags: ["React", "TypeScript", "Web Development"],
   },
   {
@@ -127,7 +127,7 @@ Mastering closures will significantly improve your JavaScript skills and code qu
     date: "2025-03-25",
     readTime: "10 min read",
     category: "JavaScript",
-    imageUrl: "/images/projects/new_portfolio/default.jpg",
+    imageUrl: "/images/blogs/new_portfolio/home.png",
     tags: ["JavaScript", "Closures", "Programming Fundamentals"],
   },
   {
@@ -197,7 +197,7 @@ By following these practices, you'll build Node.js applications that scale with 
     date: "2025-03-15",
     readTime: "12 min read",
     category: "Backend",
-    imageUrl: "/images/projects/new_portfolio/default.jpg",
+    imageUrl: "/images/blogs/new_portfolio/home.png",
     tags: ["Node.js", "Express", "Backend Architecture"],
   },
   {
@@ -263,7 +263,37 @@ The web development industry is moving towards better tools, faster experiences,
     date: "2025-03-08",
     readTime: "11 min read",
     category: "Trends",
-    imageUrl: "/images/projects/new_portfolio/default.jpg",
+    imageUrl: "/images/blogs/new_portfolio/home.png",
     tags: ["Web Development", "Trends", "Future Tech"],
   },
 ];
+
+/**
+ * HOW TO ADD A NEW BLOG POST:
+ *
+ * You can add blogs in two ways:
+ *
+ * 1. Using the Write Blog Page (Recommended):
+ *    - Navigate to the "/write-blog" page
+ *    - Fill out the form with your blog details
+ *    - Publish the blog - it will be added to this array and displayed on the portfolio
+ *
+ * 2. Manually Adding to This File:
+ *    - Add a new object to the blogs array following this template:
+ *
+ *    {
+ *      id: "5",  // Unique identifier (increment from last blog)
+ *      title: "Your Blog Title",
+ *      description: "A short description for the blog card",
+ *      fullContent: `Your full blog content here. Supports markdown formatting.`,
+ *      author: "Your Name",
+ *      date: "2025-04-11",  // ISO format: YYYY-MM-DD
+ *      readTime: "5 min read",  // Format: "X min read"
+ *      category: "Frontend",  // Frontend, Backend, JavaScript, TypeScript, React, Node.js, DevOps, Other
+ *      imageUrl: "/images/blogs/path/to/image.png",  // Optional
+ *      tags: ["React", "TypeScript", "Web Development"],  // Array of tags
+ *    }
+ *
+ * Available Categories:
+ * - Frontend, Backend, JavaScript, TypeScript, React, Node.js, DevOps, Other
+ */

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Bookmark, Calendar } from "lucide-react";
+import { ArrowRight, Bookmark, Calendar, Plus } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -78,6 +78,8 @@ function BlogCard({ blog, index }: { blog: any; index: number }) {
 }
 
 export function Blogs() {
+  const navigate = useNavigate();
+
   return (
     <section id="blogs" className="border-t border-border py-24">
       <div className="container mx-auto px-4">
@@ -87,12 +89,21 @@ export function Blogs() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="mb-12"
+          className="mb-12 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between"
         >
-          <h2 className="font-serif text-4xl text-foreground mb-4">Blog</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl">
-            Thoughts and insights on web development, programming, and technology trends.
-          </p>
+          <div>
+            <h2 className="font-serif text-4xl text-foreground mb-4">Blogs</h2>
+            <p className="text-lg text-muted-foreground max-w-2xl">
+              Thoughts and insights on web development, programming, and technology trends.
+            </p>
+          </div>
+          <Button 
+            onClick={() => navigate("/write-blog")}
+            className="bg-accent hover:bg-accent/90 text-background font-medium gap-2 whitespace-nowrap"
+          >
+            <Plus className="h-4 w-4" />
+            Write Blog
+          </Button>
         </motion.div>
 
         {/* Blog Grid */}
