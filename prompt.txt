@@ -1,0 +1,227 @@
+# .NET 10 Web API Application Development Prompt
+
+## Project Overview
+Build a secure, scalable .NET 10 Web API for a portfolio management system with the following entities:
+- Blog (with Tags)
+- Experience (with associated Skills)
+- Education (with associated Skills)
+- Project (with Tech Stack and Images)
+- Learning Topics
+- Skills & Skill Categories
+- Resume (aggregates user data)
+
+## Architecture & Design Patterns
+
+### 1. Model-Service-Repository Pattern
+- **Models/Entities**: Clean POCO classes representing database entities
+- **Repository Pattern**: Abstract data access layer for CRUD operations and complex queries
+- **Service Layer**: Business logic, validation, and orchestration between repositories
+- **Controllers**: Thin controllers that delegate to services
+
+### 2. Project Structure
+Api/
+├── Portfolio.API/
+│ ├── Controllers/
+│ ├── Endpoints/
+│ ├── Middleware/
+│ ├── Program.cs
+│ └── appsettings.json
+├── Portfolio.Core/
+│ ├── Entities/
+│ ├── Interfaces/
+│ ├── DTOs/
+│ └── Enums/
+├── Portfolio.Infrastructure/
+│ ├── Data/
+│ │ ├── ApplicationDbContext.cs
+│ │ └── Migrations/
+│ ├── Repositories/
+│ └── UnitOfWork.cs
+└── Portfolio.Service/
+├── Services/
+├── Validators/
+└── Mappings/
+
+
+
+## Database Design - PostgreSQL (.NET 10 EF Core 10)
+
+### Key Requirements
+- Use Entity Framework Core 10 with PostgreSQL provider
+- Leverage new EF Core 10 features: JSON columns mapping, improved LINQ translation
+- Implement migrations for version control
+- Add appropriate indexes on frequently queried columns (id, userId, category, status, date)
+- Use GUID (UUID) for primary keys for distributed systems
+- Implement soft deletes for audit trails
+- Add created/updated timestamps on all entities
+- Use PostgreSQL-specific features: JSON columns for arrays, JSONB for complex data
+- Utilize EF Core 10's ComplexType for value objects without separate tables
+
+### Entity Relationships
+- One-to-Many: Blog → BlogTags, Project → ProjectImages, Project → TechStacks, SkillCategory → Skills
+- Many-to-Many: Experience ↔ Skills, Education ↔ Skills, Project ↔ Skills
+- Aggregation: Resume composes Experience, Education, Projects, Skills
+
+## Core Implementation Requirements
+
+### 1. Entity Classes (Core Layer - .NET 10)
+- **Base Entity**: Create abstract `BaseEntity` with Id (GUID), CreatedAt, UpdatedAt, IsDeleted
+- **Value Objects**: Use strongly-typed values (e.g., Email, Slug) as ComplexTypes in EF Core 10
+- **Enums**: Define ProjectStatus, LearningStatus, EntityStatus as enums
+- **Relationships**: Properly map navigation properties with EF Core conventions
+- **Sealed Records**: Use sealed records for immutable value objects
+- **Required Properties**: Use required keyword for mandatory fields
+
+### 2. DTOs (Data Transfer Objects)
+- Separate Create, Update, and Read DTOs
+- Avoid exposing internal IDs in public APIs where unnecessary
+- Use DTOs for API responses (never return entities directly)
+- Implement pagination DTOs for list endpoints
+- Use record types for immutable DTOs (C# 12 features)
+
+### 3. Repository Pattern (Infrastructure Layer)
+- **IRepository<T>**: Generic interface with CRUD + common query methods
+- **IUnitOfWork**: Coordinate multiple repositories, handle transactions
+- **Generic Repository Base**: Implement FindById, Add, Update, Delete, GetAll, FindAsync
+- **Specific Repositories**: Extend generic for complex queries (e.g., IExperienceRepository, IBlogRepository)
+- Use IAsyncEnumerable for streaming large result sets
+- Use IQueryable for composable queries (avoid loading data into memory)
+- Leverage EF Core 10's compiled queries for performance
+
+### 4. Service Layer
+- **Dependency Injection**: Use .NET 10's enhanced DI with keyed services
+- **Validation**: Use FluentValidation for business rule validation
+- **Mapping**: Use AutoMapper for DTO ↔ Entity conversions (DRY principle)
+- **Error Handling**: Throw custom exceptions, let middleware handle logging/responses
+- **Transaction Support**: Use UnitOfWork.SaveChangesAsync() for multi-repository operations
+- **Interceptors**: Use EF Core 10 interceptors for audit trails and logging
+
+### 5. Security Best Practices
+- **Authentication**: Implement JWT with claims-based authorization using IdentityModel
+- **Authorization**: Use .NET 10 policy-based authorization with fine-grained permissions
+- **Input Validation**: Validate all inputs at API boundary using FluentValidation
+- **Logging**: Use Serilog with structured logging, avoiding sensitive data
+- **Secrets Management**: Use Azure Key Vault or environment variables (never hardcode)
+- **CORS**: Configure restrictive CORS policy by origin with .NET 10's new CORS features
+- **HTTPS**: Enforce HTTPS, configure HSTS headers (enabled by default in .NET 10)
+- **SQL Injection**: Use parameterized queries (EF Core 10 handles this automatically)
+- **Rate Limiting**: Implement rate limiting middleware (built-in support in .NET 10)
+- **API Versioning**: Use API versioning for backward compatibility
+- **Content Security Policy**: Implement CSP headers for API responses
+- **Data Encryption**: Use transparent data encryption at columns or database level
+
+### 6. Scalability & DRY Principles
+- **Pagination**: Implement PagedResult<T> with skip/take for large datasets
+- **Caching**: Add caching layer (distributed Redis) for read-heavy data (blogs, projects, skills)
+- **Async Operations**: Use async/await throughout; leverage ValueTask<T> for hot paths
+- **Query Optimization**: Use .Include(), .Select() to prevent N+1 queries via EF Core 10
+- **Specification Pattern**: Create specifications for complex filtering (eliminate repeated WHERE clauses)
+- **Generic Result Pattern**: Use Result<T> for consistent API responses
+- **Extension Methods**: Create reusable extensions for common operations
+- **Configuration**: Externalize all configuration to settings files using typed options
+- **Logging**: Centralized logging via Serilog with structured logging and telemetry
+- **CQRS** (optional): Implement Command/Query Responsibility Segregation with MediatR
+- **Vertical Slice Architecture**: Organize by features instead of layers for better separation
+
+### 7. API Endpoints Design (.NET 10 Minimal APIs)
+- Use Minimal APIs with MapGroup() for cleaner endpoint organization
+- RESTful conventions: GET /api/v1/{resource}, POST, PUT, DELETE
+- Consistent response format: `{ success: bool, data: T, message: string, errors: [] }`
+- Pagination: `GET /api/v1/blogs?pageNumber=1&pageSize=10`
+- Filtering: `GET /api/v1/projects?status=completed&year=2025`
+- Search: `GET /api/v1/blogs/search?query=typescript`
+- Sorting: `GET /api/v1/experiences?sortBy=startDate&sortOrder=desc`
+- Leverage endpoint filters for cross-cutting concerns (logging, validation, authorization)
+
+### 8. Error Handling
+- Create custom exception classes (ValidationException, NotFoundException, UnauthorizedException)
+- Implement global exception handling middleware with .NET 10's compatibility
+- Return meaningful HTTP status codes (400, 401, 403, 404, 500)
+- Include consistent error response structure with error codes
+- Use ProblemDetails standard for error responses (RFC 7807)
+
+### 9. Testing
+- Unit Tests: Test services and repositories in isolation using xUnit
+- Integration Tests: Use WebApplicationFactory<TProgram> for API testing
+- Mock external dependencies using Moq or NSubstitute
+- Achieve 70%+ code coverage for critical paths
+- Use TestContainers for PostgreSQL integration tests
+
+### 10. Documentation & Configuration
+- Add XML comments to public methods
+- Generate Swagger/OpenAPI documentation with .NET 10 improvements
+- Include authentication in Swagger (Bearer token)
+- Configure Swagger UI for API testing with examples
+- Maintain comprehensive README with setup instructions
+
+## .NET 10 Specific Features & Improvements
+
+- **C# 13 Support**: Use latest language features (collection expressions, primary constructors, params collections)
+- **Performance**: Improved JIT compiler, better vectorization support
+- **EF Core 10**: JsonDomainType support, improved lazy loading, better compiled queries
+- **Built-in Rate Limiting**: UseRateLimiter() middleware
+- **Built-in Request Decompression**: Automatic gzip/deflate decompression
+- **Keyed DI Services**: Register services with keys for better testability
+- **Enhanced Telemetry**: Improved OpenTelemetry integration with metrics, traces, logs
+- **Native AOT**: Publish as native executables for reduced startup time and memory
+- **HTTPS by Default**: All templates now use HTTPS by default with strict enforcement
+- **HttpClient Resilience**: Built-in support for resilience patterns with Polly integration
+
+## Dependencies & Tools (.NET 10 Compatible)
+- **.NET 10+**: Latest stable framework with C# 13
+- **Entity Framework Core 10**: ORM for PostgreSQL with latest features
+- **Npgsql**: PostgreSQL data provider
+- **PostgreSQL 15+**: Modern database version
+- **FluentValidation 12+**: Input validation framework compatible with .NET 10
+- **AutoMapper 13+**: Object mapping
+- **Serilog 4+**: Structured logging with .NET 10 integration
+- **IdentityServer - latest**: Authentication with OAuth2/OpenID Connect
+- **MediatR**: Command/Query pattern for cleaner services
+- **HealthChecks.UI**: Monitor health of services and dependencies
+- **Polly 8+**: Resilience patterns (retry, circuit breaker, bulkhead)
+- **OpenTelemetry**: Distributed tracing and monitoring
+- **xUnit 2.7+**: Testing framework
+- **WebApplicationFactory**: Built-in for integration testing
+
+## Development Workflow
+1. Define entities with migrations using EF Core 10 conventions
+2. Create repositories leveraging new EF Core 10 features
+3. Implement cache layer with distributed caching
+4. Build services with validation and error handling
+5. Create API endpoints using Minimal APIs with MapGroup()
+6. Add authentication & authorization with policy-based approach
+7. Implement global exception handling middleware
+8. Add structured logging and telemetry
+9. Write comprehensive tests with WebApplicationFactory
+10. Document APIs with Swagger and examples
+
+## Performance Considerations (.NET 10 Optimized)
+- Use indexes on frequently queried columns
+- Implement query result caching with Redis
+- Use pagination for large result sets with IAsyncEnumerable
+- Profile and eliminate N+1 queries using EF Core 10's improvements
+- Consider materialized views for complex reporting
+- Use connection pooling with optimized settings
+- Leverage ValueTask<T> for hot paths (common queries)
+- Use source generators for performance-critical code
+- Enable tiered compilation for JIT optimization
+
+## Deployment & Monitoring
+- Containerize with Docker using .NET 10 runtime images
+- Use health check endpoints for orchestration
+- Implement structured logging integration (ELK, Grafana)
+- Monitor database performance with PostgreSQL tools
+- Set up automated backups for PostgreSQL
+- Use CI/CD pipelines with GitHub Actions or Azure DevOps
+- Deploy to Kubernetes, Azure Container Instances, or App Service
+- Monitor with Application Insights or Datadog
+- Implement rate limiting at API Gateway level
+
+## Code Quality Standards
+- Follow C# 13 coding conventions
+- Use nullable reference types throughout
+- Implement SOLID principles consistently
+- Use code analyzers: Roslyn, StyleCop, FxCopAnalyzers
+- Maintain clean code with consistent naming conventions
+- Use record types for DTOs and value objects
+- Implement async/await properly with ConfigureAwait(false)
