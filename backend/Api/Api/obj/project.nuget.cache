@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "yn9XQWfR9g4=",
+  "success": true,
+  "projectFilePath": "/Users/rezaul/Desktop/Workspace/NewSoftProd/md-rezaul-hasan/backend/Api/Api/Api.csproj",
+  "expectedPackageFiles": [
+    "/Users/rezaul/.nuget/packages/microsoft.aspnetcore.openapi/10.0.1/microsoft.aspnetcore.openapi.10.0.1.nupkg.sha512",
+    "/Users/rezaul/.nuget/packages/microsoft.openapi/2.0.0/microsoft.openapi.2.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
