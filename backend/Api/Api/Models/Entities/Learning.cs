@@ -1,3 +1,5 @@
+using System.Runtime.Serialization;
+
 namespace Api.Models;
 
 public class Learning
@@ -12,7 +14,12 @@ public class Learning
 
 public enum LearningStatus
 {
+    [EnumMember(Value = "In Progress")]
     InProgress,
+
+    [EnumMember(Value = "Completed")]
     Completed,
+
+    [EnumMember(Value = "Starting")]
     Starting
 }
