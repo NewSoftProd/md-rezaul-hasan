@@ -16,7 +16,13 @@ public class LearningController : ControllerBase
     {
         _context = context;
     }
-
+    [HttpGet]
+    public async Task<IActionResult> GetLearningTopic()
+    {
+        var learning = await _context.Learnings.ToListAsync();
+        if (!learning.Any()) return NotFound(); 
+        return Ok(learning);
+    }
     [HttpGet("{id:int}")]
     public async Task<IActionResult> GetLearningTopicById(int id)
     {

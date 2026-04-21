@@ -272,7 +272,7 @@ namespace Api.Data
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("timestamp with time zone");
 
-                    b.PrimitiveCollection<string[]>("skills")
+                    b.PrimitiveCollection<string[]>("Skills")
                         .IsRequired()
                         .HasColumnType("text[]");
 
