@@ -92,7 +92,7 @@ namespace Api.Data
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<DateTime>("EndDate")
+                    b.Property<DateTime?>("EndDate")
                         .HasColumnType("timestamp with time zone");
 
                     b.PrimitiveCollection<string[]>("Skills")

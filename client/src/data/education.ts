@@ -31,3 +31,23 @@ export const educations: Education[] = [
 
   }
 ];
+
+
+
+// {
+//   "title": "Master's degree in Software engineering of distributed systems",
+//   "company": "KTH Royal Institute of Technology",
+//   "startDate": "2019-08-01T00:00:00Z",
+//   "endDate": null,
+//   "description": "Software engineer specializing in distributed systems architecture with a focus on blockchain technologies. Experienced in building fault-tolerant, scalable systems that handle consensus mechanisms, peer-to-peer networking, and decentralized data management. Skilled in developing smart contracts, implementing cryptographic protocols, and designing distributed applications that maintain consistency and availability across network partitions.",
+//   "skills": ["Docker", "Thread modeling", "Concurrency", "Tendermint Network", "Dynamic programming", "DevOps"]
+// }
+
+
+// "title": "Bachelor's degree in Computer Science and Engineering",
+//     "company": "International Islamic University Chittagong",
+//     "startDate": "2012-01-01T00:00:00Z",
+//     "endDate": null,
+//     "description":
+//       "Bachelor's degree in Computer Science and Engineering with strong foundations in algorithms, data structures, and computational theory. Coursework covered programming paradigms, discrete mathematics, database systems, operating systems, and computer architecture. Specialized in system design principles, parallel programming techniques, and algorithmic problem-solving. Developed expertise in analyzing time and space complexity, designing scalable solutions, and implementing efficient code across multiple programming languages.",
+//     "skills":["Distributed database", "C programing language", "Algorithms", "Data structures", "System Design","Operating Systems" ]

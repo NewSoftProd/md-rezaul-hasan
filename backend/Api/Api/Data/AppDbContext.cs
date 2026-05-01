@@ -21,6 +21,7 @@ public class AppDbContext : DbContext
     
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        // This conversion need for storing enum to string 
         modelBuilder.Entity<Learning>()
             .Property(l => l.Status)
             .HasConversion<string>()
