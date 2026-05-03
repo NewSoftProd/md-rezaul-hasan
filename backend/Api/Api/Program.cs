@@ -2,6 +2,7 @@ using Api.Data;
 using Microsoft.EntityFrameworkCore;
 using Scalar.AspNetCore;
 using System.Text.Json.Serialization;
+using Microsoft.OpenApi;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,8 +20,22 @@ builder.Services.AddControllers()    .AddJsonOptions(options =>
     options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
 });;
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-builder.Services.AddOpenApi();
-
+builder.Services.AddOpenApi(options =>
+{
+    options.AddSchemaTransformer((schema, context, cancellationToken) =>
+    {
+        // Only target IFormFile or a list of IFormFiles
+        var type = context.JsonTypeInfo.Type;
+        
+        if (type == typeof(IFormFile) || type == typeof(List<IFormFile>) || type == typeof(IFormFile[]))
+        {
+            schema.Type = JsonSchemaType.String;
+            schema.Format = "binary";
+        }
+        
+        return Task.CompletedTask;
+    });
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

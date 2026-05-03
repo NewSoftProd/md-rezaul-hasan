@@ -26,5 +26,14 @@ public class AppDbContext : DbContext
             .Property(l => l.Status)
             .HasConversion<string>()
             .HasMaxLength(20);
+        modelBuilder.Entity<Project>()
+            .Property(p => p.Status)
+            .HasConversion<string>()
+            .HasMaxLength(20);
+        
+        // Ensure EF Core knows to map this as an array type in PostgreSQL
+        modelBuilder.Entity<Project>()
+            .Property(e => e.AdditionalImages)
+            .HasColumnType("bytea[]");
     }
 }

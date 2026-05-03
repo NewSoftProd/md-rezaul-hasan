@@ -1,3 +1,5 @@
+using System.Runtime.Serialization;
+
 namespace Api.Models;
 
 public class Project
@@ -6,8 +8,12 @@ public class Project
     public string Title { get; set; }
     public string Description { get; set; }
     public string FullDescription { get; set; }
-    public string ImageUrl { get; set; }
-    public string[] ImageGallery { get; set; }
+    
+    // Single image stored as a BLOB
+    public byte[]? MainImage { get; set; }
+    
+    // Array of images stored as a BLOB array
+    public List<byte[]> AdditionalImages { get; set; } = new();
     public string[] TechStack { get; set; }
     public ProjectStatus Status { get; set; }
     public string LiveUrl { get; set; }
@@ -29,6 +35,8 @@ public class Project
 
 public enum ProjectStatus
 {
- Current,
-     Completed
+    [EnumMember(Value = "Current")]
+    Current,
+    [EnumMember(Value = "Completed")]
+    Completed,
 }

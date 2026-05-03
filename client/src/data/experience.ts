@@ -41,3 +41,14 @@ export const experiences: Experience[] = [
     skills:["ASP.NET Web API", "Angular", "Azure DevOps", "Docker Swarm","Jenkins","DBB","UCD", "MSSQL", "GCP" ]
   },
 ];
+
+
+
+// "title": "Tech Lead | Backend & DevOps Infrastructure Engineer",
+//     "company": "SEB Bank",
+//     "startDate": "2025-03-01T00:00:00Z",
+//     "endDate": null,
+//     "description":
+//       "As a Tech Lead, I empower our team by building a scalable DevOps infrastructure with a strong CI/CD focus. I drive automation, streamline deployments, and contribute to API development in .NET, along with MFE UIs in Next.js/Angular when needed. My goal is to enhance software delivery, reliability, and innovation through collaboration and technical excellence.",
+//     "skills":["ASP.NET Web API", "React", "Angular", "Github Actions", "Openshift","Nextjs" ]
+ 
