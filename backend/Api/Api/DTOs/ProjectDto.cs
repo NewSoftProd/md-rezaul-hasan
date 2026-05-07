@@ -64,6 +64,60 @@ public class ProjectDto
     
 }
 
+public class ProjectUpdateDto
+{
+    [StringLength(150, MinimumLength = 3, ErrorMessage = "Title must be between 3 and 150 characters.")]
+    public string? Title { get; set; }
+
+    [StringLength(500, ErrorMessage = "Description cannot exceed 500 characters.")]
+    public string? Description { get; set; }
+
+    public string? FullDescription { get; set; }
+    
+    [MaxFileSize(5 * 1024 * 1024)] 
+    [AllowedExtensions(new[] { ".jpg", ".jpeg", ".png", ".webp" })]
+    public IFormFile? MainImage { get; set; }
+
+    [MaxFileSize(5 * 1024 * 1024)]
+    [AllowedExtensions(new[] { ".jpg", ".jpeg", ".png" })]
+    [MaxLength(10, ErrorMessage = "You can upload a maximum of 10 additional images.")]
+    public List<IFormFile> AdditionalImages { get; set; } = new();
+
+
+    
+    [MinLength(1, ErrorMessage = "At least one technology must be specified in the Tech Stack.")]
+    public string[]? TechStack { get; set; }
+
+
+    public ProjectStatus? Status { get; set; }
+
+    [Url(ErrorMessage = "Live URL must be a valid web address.")]
+    public string? LiveUrl { get; set; } // Made nullable since a project might not be live
+    
+    [Url(ErrorMessage = "Repository URL must be a valid web address.")]
+    public string? RepoUrl { get; set; } // Made nullable since a repo might be private/non-existent
+
+    [RegularExpression(@"^(19|20)\d{2}$", ErrorMessage = "Year must be a valid 4-digit year (e.g., 2024).")]
+    public string? Year { get; set; }
+
+    [StringLength(100, ErrorMessage = "Role cannot exceed 100 characters.")]
+    public string? Role { get; set; }
+
+    [StringLength(2000, ErrorMessage = "Key features text is too long.")]
+    public string? KeyFeatures { get; set; }
+    
+    [StringLength(2000, ErrorMessage = "Challenges text is too long.")]
+    public string? Challenges { get; set; }
+
+    [StringLength(2000, ErrorMessage = "Solutions text is too long.")]
+    public string? Solutions { get; set; }
+
+    [StringLength(1000, ErrorMessage = "Impact text is too long.")]
+    public string? Impact { get; set; }
+
+    public string[]? Learnings { get; set; }
+    
+}
 
 
 public class MaxFileSizeAttribute : ValidationAttribute

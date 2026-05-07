@@ -28,7 +28,7 @@ public class ProjectController : ControllerBase
                 p.Description, 
                 p.Year, 
                 p.Status,
-                HasMainImage = p.MainImage != null 
+                HasMainImage = p.MainImage != null,
             })
             .ToListAsync();
     }
@@ -85,39 +85,94 @@ public class ProjectController : ControllerBase
 
     // PUT: api/Project/5
     [HttpPut("{id}")]
-    public async Task<IActionResult> Update(int id, [FromForm] ProjectDto dto)
+    [Consumes("multipart/form-data")]
+    public async Task<IActionResult> Update(int id, [FromForm] ProjectUpdateDto updateDto)
     {
         var project = await _context.Projects.FindAsync(id);
         if (project == null) return NotFound();
 
         // Update Text Fields
-        project.Title = dto.Title;
-        project.Description = dto.Description;
-        project.FullDescription = dto.FullDescription;
-        project.TechStack = dto.TechStack;
-        project.Status = dto.Status;
-        project.LiveUrl = dto.LiveUrl;
-        project.RepoUrl = dto.RepoUrl;
-        project.Year = dto.Year;
-        project.Role = dto.Role;
-        project.KeyFeatures = dto.KeyFeatures;
-        project.Challenges = dto.Challenges;
-        project.Solutions = dto.Solutions;
-        project.Impact = dto.Impact;
-        project.Learnings = dto.Learnings;
+        project.Title = updateDto.Title ?? string.Empty;
+        project.Description = updateDto.Description ?? string.Empty;
+        project.FullDescription = updateDto.FullDescription ?? string.Empty;
+        project.TechStack = updateDto.TechStack ?? Array.Empty<string>();
+        project.Status = updateDto.Status ?? ProjectStatus.Current;
+        project.LiveUrl = updateDto.LiveUrl ?? string.Empty;
+        project.RepoUrl = updateDto.RepoUrl ?? string.Empty;
+        project.Year = updateDto.Year ?? string.Empty;
+        project.Role = updateDto.Role ?? string.Empty;
+        project.KeyFeatures = updateDto.KeyFeatures ?? string.Empty;
+        project.Challenges = updateDto.Challenges ?? string.Empty;
+        project.Solutions = updateDto.Solutions ?? string.Empty;
+        project.Impact = updateDto.Impact ?? string.Empty;
+        project.Learnings = updateDto.Learnings ?? Array.Empty<string>();
 
         // Logic for updating images: 
         // If a new main image is provided, replace it.
-        if (dto.MainImage != null)
+        if (updateDto.MainImage != null)
         {
-            project.MainImage = await GetFileBytes(dto.MainImage);
+            project.MainImage = await GetFileBytes(updateDto.MainImage);
         }
 
         // For additional images, this logic appends new ones. 
         // To replace them entirely, call project.AdditionalImages.Clear() first.
-        if (dto.AdditionalImages.Any())
+        if (updateDto.AdditionalImages.Any())
         {
-            foreach (var file in dto.AdditionalImages)
+            foreach (var file in updateDto.AdditionalImages)
+            {
+                project.AdditionalImages.Add(await GetFileBytes(file));
+            }
+        }
+
+        try
+        {
+            await _context.SaveChangesAsync();
+        }
+        catch (DbUpdateConcurrencyException)
+        {
+            if (!_context.Projects.Any(e => e.Id == id)) return NotFound();
+            throw;
+        }
+
+        return NoContent();
+    }
+
+    // PATCH: api/Project/5
+    [HttpPatch("{id}")]
+    [Consumes("multipart/form-data")]
+    public async Task<IActionResult> Patch(int id, [FromForm] ProjectUpdateDto updateDto)
+    {
+        var project = await _context.Projects.FindAsync(id);
+        if (project == null) return NotFound();
+
+        // Update Text Fields only if provided (not null or not default)
+        if (!string.IsNullOrEmpty(updateDto.Title)) project.Title = updateDto.Title;
+        if (!string.IsNullOrEmpty(updateDto.Description)) project.Description = updateDto.Description;
+        if (!string.IsNullOrEmpty(updateDto.FullDescription)) project.FullDescription = updateDto.FullDescription;
+        if (updateDto.TechStack != null && updateDto.TechStack.Any()) project.TechStack = updateDto.TechStack;
+        
+        // Status is an enum, we only update it if it's provided.
+        if (updateDto.Status.HasValue) project.Status = updateDto.Status.Value;
+
+        if (!string.IsNullOrEmpty(updateDto.LiveUrl)) project.LiveUrl = updateDto.LiveUrl;
+        if (!string.IsNullOrEmpty(updateDto.RepoUrl)) project.RepoUrl = updateDto.RepoUrl;
+        if (!string.IsNullOrEmpty(updateDto.Year)) project.Year = updateDto.Year;
+        if (!string.IsNullOrEmpty(updateDto.Role)) project.Role = updateDto.Role;
+        if (updateDto.KeyFeatures != null) project.KeyFeatures = updateDto.KeyFeatures;
+        if (updateDto.Challenges != null) project.Challenges = updateDto.Challenges;
+        if (updateDto.Solutions != null) project.Solutions = updateDto.Solutions;
+        if (updateDto.Impact != null) project.Impact = updateDto.Impact;
+        if (updateDto.Learnings != null && updateDto.Learnings.Any()) project.Learnings = updateDto.Learnings;
+
+        // Logic for updating images: 
+        if (updateDto.MainImage != null)
+        {
+            project.MainImage = await GetFileBytes(updateDto.MainImage);
+        }
+
+        if (updateDto.AdditionalImages != null && updateDto.AdditionalImages.Any())
+        {
+            foreach (var file in updateDto.AdditionalImages)
             {
                 project.AdditionalImages.Add(await GetFileBytes(file));
             }
