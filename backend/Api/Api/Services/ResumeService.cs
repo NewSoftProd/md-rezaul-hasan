@@ -1,11 +1,7 @@
-using Api.Data;
-using Api.DTOs;
-using Api.Models;
-using Api.Response;
+
 using SkillCategory = Api.Models.SkillCategory;
 
 namespace Api.Services;
-using Microsoft.EntityFrameworkCore;
 
 public interface IResumeService
 {
