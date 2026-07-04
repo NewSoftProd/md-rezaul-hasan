@@ -1,5 +1,9 @@
 
-using SkillCategory = Api.Models.SkillCategory;
+using Api.Data;
+using Api.Models;
+using Api.Response;
+using Microsoft.EntityFrameworkCore;
+
 
 namespace Api.Services;
 
@@ -76,26 +80,26 @@ public class ResumeService : IResumeService
     {
         return await _context.Experiences
             .OrderByDescending(e => e.StartDate)
-            .ToListAsync();
+            .ToListAsync<Experience>();
     }
 
     public async Task<List<Education>> GetEducationsAsync()
     {
         return await _context.Educations
             .OrderByDescending(e => e.StartDate)
-            .ToListAsync();
+            .ToListAsync<Education>();
     }
 
     public async Task<List<SkillCategory>> GetSkillCategoriesAsync()
     {
         return await _context.SkillCategories
-            .ToListAsync();
+            .ToListAsync<SkillCategory>();
     }
 
     public async Task<List<Project>> GetProjectsAsync()
     {
         return await _context.Projects
             .OrderByDescending(p => p.Year)
-            .ToListAsync();
+            .ToListAsync<Project>();
     }
 }

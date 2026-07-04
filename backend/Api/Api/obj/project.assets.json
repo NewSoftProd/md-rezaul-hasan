@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 4,
   "targets": {
     "net10.0": {
       "Humanizer.Core/2.14.1": {
@@ -15,7 +15,7 @@
           }
         }
       },
-      "Microsoft.AspNetCore.OpenApi/10.0.1": {
+      "Microsoft.AspNetCore.OpenApi/10.0.9": {
         "type": "package",
         "dependencies": {
           "Microsoft.OpenApi": "2.0.0"
@@ -363,11 +363,11 @@
           }
         }
       },
-      "Microsoft.EntityFrameworkCore/10.0.6": {
+      "Microsoft.EntityFrameworkCore/10.0.9": {
         "type": "package",
         "dependencies": {
-          "Microsoft.EntityFrameworkCore.Abstractions": "10.0.6",
-          "Microsoft.EntityFrameworkCore.Analyzers": "10.0.6"
+          "Microsoft.EntityFrameworkCore.Abstractions": "10.0.9",
+          "Microsoft.EntityFrameworkCore.Analyzers": "10.0.9"
         },
         "compile": {
           "lib/net10.0/Microsoft.EntityFrameworkCore.dll": {
@@ -383,7 +383,7 @@
           "buildTransitive/net10.0/Microsoft.EntityFrameworkCore.props": {}
         }
       },
-      "Microsoft.EntityFrameworkCore.Abstractions/10.0.6": {
+      "Microsoft.EntityFrameworkCore.Abstractions/10.0.9": {
         "type": "package",
         "compile": {
           "lib/net10.0/Microsoft.EntityFrameworkCore.Abstractions.dll": {
@@ -396,10 +396,10 @@
           }
         }
       },
-      "Microsoft.EntityFrameworkCore.Analyzers/10.0.6": {
+      "Microsoft.EntityFrameworkCore.Analyzers/10.0.9": {
         "type": "package"
       },
-      "Microsoft.EntityFrameworkCore.Design/10.0.6": {
+      "Microsoft.EntityFrameworkCore.Design/10.0.9": {
         "type": "package",
         "dependencies": {
           "Humanizer.Core": "2.14.1",
@@ -407,8 +407,8 @@
           "Microsoft.CodeAnalysis.CSharp": "5.0.0",
           "Microsoft.CodeAnalysis.CSharp.Workspaces": "5.0.0",
           "Microsoft.CodeAnalysis.Workspaces.MSBuild": "5.0.0",
-          "Microsoft.EntityFrameworkCore.Relational": "10.0.6",
-          "Microsoft.Extensions.DependencyModel": "10.0.6",
+          "Microsoft.EntityFrameworkCore.Relational": "10.0.9",
+          "Microsoft.Extensions.DependencyModel": "10.0.9",
           "Mono.TextTemplating": "3.0.0",
           "Newtonsoft.Json": "13.0.3"
         },
@@ -426,10 +426,10 @@
           "build/net10.0/Microsoft.EntityFrameworkCore.Design.props": {}
         }
       },
-      "Microsoft.EntityFrameworkCore.Relational/10.0.6": {
+      "Microsoft.EntityFrameworkCore.Relational/10.0.9": {
         "type": "package",
         "dependencies": {
-          "Microsoft.EntityFrameworkCore": "10.0.6"
+          "Microsoft.EntityFrameworkCore": "10.0.9"
         },
         "compile": {
           "lib/net10.0/Microsoft.EntityFrameworkCore.Relational.dll": {
@@ -442,19 +442,19 @@
           }
         }
       },
-      "Microsoft.EntityFrameworkCore.Tools/10.0.6": {
+      "Microsoft.EntityFrameworkCore.Tools/10.0.9": {
         "type": "package",
         "dependencies": {
-          "Microsoft.EntityFrameworkCore.Design": "8.0.0"
+          "Microsoft.EntityFrameworkCore.Design": "10.0.9"
         },
         "compile": {
-          "lib/net8.0/_._": {}
+          "lib/net10.0/_._": {}
         },
         "runtime": {
-          "lib/net8.0/_._": {}
+          "lib/net10.0/_._": {}
         }
       },
-      "Microsoft.Extensions.DependencyModel/10.0.6": {
+      "Microsoft.Extensions.DependencyModel/10.0.9": {
         "type": "package",
         "compile": {
           "lib/net10.0/_._": {
@@ -470,7 +470,7 @@
           "buildTransitive/net8.0/_._": {}
         }
       },
-      "Microsoft.OpenApi/2.0.0": {
+      "Microsoft.OpenApi/2.9.0": {
         "type": "package",
         "compile": {
           "lib/net8.0/Microsoft.OpenApi.dll": {
@@ -524,7 +524,7 @@
           }
         }
       },
-      "Npgsql/10.0.2": {
+      "Npgsql/10.0.3": {
         "type": "package",
         "compile": {
           "lib/net10.0/Npgsql.dll": {
@@ -537,12 +537,12 @@
           }
         }
       },
-      "Npgsql.EntityFrameworkCore.PostgreSQL/10.0.1": {
+      "Npgsql.EntityFrameworkCore.PostgreSQL/10.0.2": {
         "type": "package",
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "[10.0.4, 11.0.0)",
           "Microsoft.EntityFrameworkCore.Relational": "[10.0.4, 11.0.0)",
-          "Npgsql": "10.0.2"
+          "Npgsql": "10.0.3"
         },
         "compile": {
           "lib/net10.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll": {
@@ -555,7 +555,7 @@
           }
         }
       },
-      "Scalar.AspNetCore/2.14.1": {
+      "Scalar.AspNetCore/2.16.10": {
         "type": "package",
         "compile": {
           "lib/net10.0/Scalar.AspNetCore.dll": {
@@ -718,10 +718,10 @@
         "logo.png"
       ]
     },
-    "Microsoft.AspNetCore.OpenApi/10.0.1": {
-      "sha512": "gMY53EggRIFawhue66GanHcm1Tcd0+QzzMwnMl60LrEoJhGgzA9qAbLx6t/ON3hX4flc2NcEbTK1Z5GCLYHcwA==",
+    "Microsoft.AspNetCore.OpenApi/10.0.9": {
+      "sha512": "1ihb8FO9cGgEK1/m3CTtT/SfnynwmiZib0W2pcDVj3KSWk/Sca4VOXEtaptKQc582zpFrzTFiwkGRCglt6H+WQ==",
       "type": "package",
-      "path": "microsoft.aspnetcore.openapi/10.0.1",
+      "path": "microsoft.aspnetcore.openapi/10.0.9",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -732,7 +732,7 @@
         "build/Microsoft.AspNetCore.OpenApi.targets",
         "lib/net10.0/Microsoft.AspNetCore.OpenApi.dll",
         "lib/net10.0/Microsoft.AspNetCore.OpenApi.xml",
-        "microsoft.aspnetcore.openapi.10.0.1.nupkg.sha512",
+        "microsoft.aspnetcore.openapi.10.0.9.nupkg.sha512",
         "microsoft.aspnetcore.openapi.nuspec"
       ]
     },
@@ -1817,10 +1817,10 @@
         "microsoft.codeanalysis.workspaces.msbuild.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore/10.0.6": {
-      "sha512": "eDy7bu3G+51FRC0cPtXTqUI9iAdDYl/XBQ5UguN8NFOA7QNmFvUEf36wA7PZ4ctsnxRN4t3dIvs2VKVE5H+EQQ==",
+    "Microsoft.EntityFrameworkCore/10.0.9": {
+      "sha512": "tu85SRzOT021V7EQlViCiAE7TqldVn469Y6lt5TEn/+XC4/MeNCHgMRSxqYuWqvF4zAQZUhCmtNEZuM3ss4LeA==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore/10.0.6",
+      "path": "microsoft.entityframeworkcore/10.0.9",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1829,14 +1829,14 @@
         "buildTransitive/net10.0/Microsoft.EntityFrameworkCore.props",
         "lib/net10.0/Microsoft.EntityFrameworkCore.dll",
         "lib/net10.0/Microsoft.EntityFrameworkCore.xml",
-        "microsoft.entityframeworkcore.10.0.6.nupkg.sha512",
+        "microsoft.entityframeworkcore.10.0.9.nupkg.sha512",
         "microsoft.entityframeworkcore.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore.Abstractions/10.0.6": {
-      "sha512": "4F+e6uxhVmyduu+Ve1INxek94adt4RAddWqykXNDnOOWQrJJ20izw/9qRpZdkLnIW9oj/3qnLWUtsv37U0xJCw==",
+    "Microsoft.EntityFrameworkCore.Abstractions/10.0.9": {
+      "sha512": "GRMaiPkqYna/gCsyDffYDWmefGPC3hDrdMw+2rrGcQwhs6uZOsaMQXMJnoXQ35tx9SkBV2ieRRU9N/jLOO6BZw==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore.abstractions/10.0.6",
+      "path": "microsoft.entityframeworkcore.abstractions/10.0.9",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1844,28 +1844,28 @@
         "PACKAGE.md",
         "lib/net10.0/Microsoft.EntityFrameworkCore.Abstractions.dll",
         "lib/net10.0/Microsoft.EntityFrameworkCore.Abstractions.xml",
-        "microsoft.entityframeworkcore.abstractions.10.0.6.nupkg.sha512",
+        "microsoft.entityframeworkcore.abstractions.10.0.9.nupkg.sha512",
         "microsoft.entityframeworkcore.abstractions.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore.Analyzers/10.0.6": {
-      "sha512": "PIcmALdKzeSJNWmxsLDsS8XKFqiH5+9GzIM+qd3w1efYIwmO0w5304i37/SkfynctHZwkiiQjb2mkoIXU1CGZg==",
+    "Microsoft.EntityFrameworkCore.Analyzers/10.0.9": {
+      "sha512": "aiEFB+C5EsZGqxvMPazE07hbWsp4iPaufJpanGt5O+lrwv7mJLrqma5haVIgFAPCyhQkmk75XSCEubT1zUjxtA==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore.analyzers/10.0.6",
+      "path": "microsoft.entityframeworkcore.analyzers/10.0.9",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "analyzers/dotnet/cs/Microsoft.EntityFrameworkCore.Analyzers.dll",
         "docs/PACKAGE.md",
-        "microsoft.entityframeworkcore.analyzers.10.0.6.nupkg.sha512",
+        "microsoft.entityframeworkcore.analyzers.10.0.9.nupkg.sha512",
         "microsoft.entityframeworkcore.analyzers.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore.Design/10.0.6": {
-      "sha512": "0lApALa4Ug14W7DXRk/vjc0fSi6h8OCAueKJH5MN6IU4mslMKiUaMKA7hzl+yFjym60dCOjhTWWa6S0ngl+Aog==",
+    "Microsoft.EntityFrameworkCore.Design/10.0.9": {
+      "sha512": "NxgqhpB89S6BViMku9B476KopBumtk0IQ4/iVn2GeeUBW9SyzLvWwOR0zPgcooAtRlR0UVzXkaUs71gYHSAbHg==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore.design/10.0.6",
+      "path": "microsoft.entityframeworkcore.design/10.0.9",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1874,14 +1874,14 @@
         "build/net10.0/Microsoft.EntityFrameworkCore.Design.props",
         "lib/net10.0/Microsoft.EntityFrameworkCore.Design.dll",
         "lib/net10.0/Microsoft.EntityFrameworkCore.Design.xml",
-        "microsoft.entityframeworkcore.design.10.0.6.nupkg.sha512",
+        "microsoft.entityframeworkcore.design.10.0.9.nupkg.sha512",
         "microsoft.entityframeworkcore.design.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore.Relational/10.0.6": {
-      "sha512": "t+pXPUjiAemBTstY57yUAoywOO6znVD3lwy7UERJpji0wmS70XHg0h8EcpX6+7KT6ZVCIndr1pW0GdOobZ4yCg==",
+    "Microsoft.EntityFrameworkCore.Relational/10.0.9": {
+      "sha512": "dEoyYKgiaZHHgOFm1WMWm1sFEsEuhPWufX4L9PekKtqd/RaIcPjkCjvbrVvJtApErb5wPSJhYvnTlxhH+p9h2g==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore.relational/10.0.6",
+      "path": "microsoft.entityframeworkcore.relational/10.0.9",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1889,22 +1889,24 @@
         "PACKAGE.md",
         "lib/net10.0/Microsoft.EntityFrameworkCore.Relational.dll",
         "lib/net10.0/Microsoft.EntityFrameworkCore.Relational.xml",
-        "microsoft.entityframeworkcore.relational.10.0.6.nupkg.sha512",
+        "microsoft.entityframeworkcore.relational.10.0.9.nupkg.sha512",
         "microsoft.entityframeworkcore.relational.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore.Tools/10.0.6": {
-      "sha512": "KYHcG6LzOnK2ZbTGoMRUcJ+rl0eWGDVF3ZbanPuZ4Ar5r/Fg/zkakKyt4YZpN+jT2thysKN7G7dlrthsBj9yWw==",
+    "Microsoft.EntityFrameworkCore.Tools/10.0.9": {
+      "sha512": "UDdNBGQTXvuenVLHIFAeiSzUydss3Y9ukbDIn08ZX/MrR6CcVqTvh+le+oKIn3XOWKV/YrMWZpjUzO14oVPwMw==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore.tools/10.0.6",
+      "path": "microsoft.entityframeworkcore.tools/10.0.9",
       "hasTools": true,
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "docs/PACKAGE.md",
+        "lib/net10.0/_._",
         "lib/net8.0/_._",
-        "microsoft.entityframeworkcore.tools.10.0.6.nupkg.sha512",
+        "lib/net9.0/_._",
+        "microsoft.entityframeworkcore.tools.10.0.9.nupkg.sha512",
         "microsoft.entityframeworkcore.tools.nuspec",
         "tools/EntityFrameworkCore.PS2.psd1",
         "tools/EntityFrameworkCore.PS2.psm1",
@@ -1919,10 +1921,10 @@
         "tools/net8.0/any/ef.runtimeconfig.json"
       ]
     },
-    "Microsoft.Extensions.DependencyModel/10.0.6": {
-      "sha512": "xHMiq0J/wbyKDQ/tHB1FxylNWZLLlSf61Fw8XRneG6KTovjabNJiWtQoJ1MKCk71Bjr1TG1wAPVe8QZYphihLQ==",
+    "Microsoft.Extensions.DependencyModel/10.0.9": {
+      "sha512": "SCDTQ6HubnRvTUjR7dgMKHZvNoCb03t44ttHL8trlFTGgfDteWn/0nRdOxDhcI+lTWhKgd/flCVJEtAOPhSLNg==",
       "type": "package",
-      "path": "microsoft.extensions.dependencymodel/10.0.6",
+      "path": "microsoft.extensions.dependencymodel/10.0.9",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1943,15 +1945,15 @@
         "lib/net9.0/Microsoft.Extensions.DependencyModel.xml",
         "lib/netstandard2.0/Microsoft.Extensions.DependencyModel.dll",
         "lib/netstandard2.0/Microsoft.Extensions.DependencyModel.xml",
-        "microsoft.extensions.dependencymodel.10.0.6.nupkg.sha512",
+        "microsoft.extensions.dependencymodel.10.0.9.nupkg.sha512",
         "microsoft.extensions.dependencymodel.nuspec",
         "useSharedDesignerContext.txt"
       ]
     },
-    "Microsoft.OpenApi/2.0.0": {
-      "sha512": "GGYLfzV/G/ct80OZ45JxnWP7NvMX1BCugn/lX7TH5o0lcVaviavsLMTxmFV2AybXWjbi3h6FF1vgZiTK6PXndw==",
+    "Microsoft.OpenApi/2.9.0": {
+      "sha512": "uS2awDkgUvVhd735HEcNcOQdwbIDCAK3V1QzgWoszd/FPDLLVv9eF+fImmdJiGLIKKWJv2DMJQ7OSR9gYLd+uw==",
       "type": "package",
-      "path": "microsoft.openapi/2.0.0",
+      "path": "microsoft.openapi/2.9.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1962,7 +1964,7 @@
         "lib/netstandard2.0/Microsoft.OpenApi.dll",
         "lib/netstandard2.0/Microsoft.OpenApi.pdb",
         "lib/netstandard2.0/Microsoft.OpenApi.xml",
-        "microsoft.openapi.2.0.0.nupkg.sha512",
+        "microsoft.openapi.2.9.0.nupkg.sha512",
         "microsoft.openapi.nuspec"
       ]
     },
@@ -2031,10 +2033,10 @@
         "packageIcon.png"
       ]
     },
-    "Npgsql/10.0.2": {
-      "sha512": "q5RfBI+wywJSFUNDE1L4ZbHEHCFTblo8Uf6A6oe4feOUFYiUQXyAf9GBh5qEZpvJaHiEbpBPkQumjEhXCJxdrg==",
+    "Npgsql/10.0.3": {
+      "sha512": "7nb5YzXuvWWJxB0J8DiyL3we+X4FOctZrt0fIBnucOIaIevFEEwGQVZKtiu9olXdlNAK1eNgqSral6r/jlhI4w==",
       "type": "package",
-      "path": "npgsql/10.0.2",
+      "path": "npgsql/10.0.3",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -2045,30 +2047,30 @@
         "lib/net8.0/Npgsql.xml",
         "lib/net9.0/Npgsql.dll",
         "lib/net9.0/Npgsql.xml",
-        "npgsql.10.0.2.nupkg.sha512",
+        "npgsql.10.0.3.nupkg.sha512",
         "npgsql.nuspec",
         "postgresql.png"
       ]
     },
-    "Npgsql.EntityFrameworkCore.PostgreSQL/10.0.1": {
-      "sha512": "P6EwH0Q4xkaA264iNZDqCPhWt8pscfUGxXazDQg4noBfqjoOlk4hKWfvBjF9ZX3R/9JybRmmJfmxr2iBMj0EpA==",
+    "Npgsql.EntityFrameworkCore.PostgreSQL/10.0.2": {
+      "sha512": "PsNYgPOSW41Xx19gin7y4EdZAPteWr9Cb01XkdObxOsPzi+mgBupBEN7J7+erXFsROPOILM7MlIoO9QzL8+LGQ==",
       "type": "package",
-      "path": "npgsql.entityframeworkcore.postgresql/10.0.1",
+      "path": "npgsql.entityframeworkcore.postgresql/10.0.2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "README.md",
         "lib/net10.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll",
         "lib/net10.0/Npgsql.EntityFrameworkCore.PostgreSQL.xml",
-        "npgsql.entityframeworkcore.postgresql.10.0.1.nupkg.sha512",
+        "npgsql.entityframeworkcore.postgresql.10.0.2.nupkg.sha512",
         "npgsql.entityframeworkcore.postgresql.nuspec",
         "postgresql.png"
       ]
     },
-    "Scalar.AspNetCore/2.14.1": {
-      "sha512": "neS3aI7YVPDY7+I9U8nYXvSnSy6lPvGyn5w52m0MCvC5COajK4HF4vsx70OO6Fw9bd7WXOUikSBdUaLfyTzw3g==",
+    "Scalar.AspNetCore/2.16.10": {
+      "sha512": "dJsam1uxJ+h6YzaqDGjja1y3miyBd4VDumMwwow03yJapiRp3OtV5lMaOUvp8w5b16gAflYyvfj7HDL+0X2Rqw==",
       "type": "package",
-      "path": "scalar.aspnetcore/2.14.1",
+      "path": "scalar.aspnetcore/2.16.10",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -2080,7 +2082,7 @@
         "lib/net8.0/Scalar.AspNetCore.xml",
         "lib/net9.0/Scalar.AspNetCore.dll",
         "lib/net9.0/Scalar.AspNetCore.xml",
-        "scalar.aspnetcore.2.14.1.nupkg.sha512",
+        "scalar.aspnetcore.2.16.10.nupkg.sha512",
         "scalar.aspnetcore.nuspec"
       ]
     },
@@ -2273,37 +2275,46 @@
   },
   "projectFileDependencyGroups": {
     "net10.0": [
-      "Microsoft.AspNetCore.OpenApi >= 10.0.1",
-      "Microsoft.EntityFrameworkCore >= 10.0.6",
-      "Microsoft.EntityFrameworkCore.Design >= 10.0.6",
-      "Microsoft.EntityFrameworkCore.Tools >= 10.0.6",
-      "Npgsql.EntityFrameworkCore.PostgreSQL >= 10.0.1",
-      "Scalar.AspNetCore >= 2.14.1"
+      "Microsoft.AspNetCore.OpenApi >= 10.0.9",
+      "Microsoft.EntityFrameworkCore >= 10.0.9",
+      "Microsoft.EntityFrameworkCore.Design >= 10.0.9",
+      "Microsoft.EntityFrameworkCore.Tools >= 10.0.9",
+      "Microsoft.OpenApi >= 2.9.0",
+      "Npgsql.EntityFrameworkCore.PostgreSQL >= 10.0.2",
+      "Scalar.AspNetCore >= 2.16.10"
     ]
   },
   "packageFolders": {
-    "/Users/rezaul/.nuget/packages/": {}
+    "C:\\Users\\minaq\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/rezaul/Desktop/Workspace/NewSoftProd/md-rezaul-hasan/backend/Api/Api/Api.csproj",
+      "projectUniqueName": "C:\\Users\\minaq\\Desktop\\RezaulWorkspace\\md-rezaul-hasan\\backend\\Api\\Api\\Api.csproj",
       "projectName": "Api",
-      "projectPath": "/Users/rezaul/Desktop/Workspace/NewSoftProd/md-rezaul-hasan/backend/Api/Api/Api.csproj",
-      "packagesPath": "/Users/rezaul/.nuget/packages/",
-      "outputPath": "/Users/rezaul/Desktop/Workspace/NewSoftProd/md-rezaul-hasan/backend/Api/Api/obj/",
+      "projectPath": "C:\\Users\\minaq\\Desktop\\RezaulWorkspace\\md-rezaul-hasan\\backend\\Api\\Api\\Api.csproj",
+      "packagesPath": "C:\\Users\\minaq\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\minaq\\Desktop\\RezaulWorkspace\\md-rezaul-hasan\\backend\\Api\\Api\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "/Users/rezaul/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\minaq\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net10.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net10.0": {
+          "framework": "net10.0",
           "targetAlias": "net10.0",
           "projectReferences": {}
         }
@@ -2318,39 +2329,44 @@
         "auditLevel": "low",
         "auditMode": "all"
       },
-      "SdkAnalysisLevel": "10.0.100"
+      "SdkAnalysisLevel": "10.0.300"
     },
     "frameworks": {
       "net10.0": {
+        "framework": "net10.0",
         "targetAlias": "net10.0",
         "dependencies": {
           "Microsoft.AspNetCore.OpenApi": {
             "target": "Package",
-            "version": "[10.0.1, )"
+            "version": "[10.0.9, )"
           },
           "Microsoft.EntityFrameworkCore": {
             "target": "Package",
-            "version": "[10.0.6, )"
+            "version": "[10.0.9, )"
           },
           "Microsoft.EntityFrameworkCore.Design": {
             "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
             "suppressParent": "All",
             "target": "Package",
-            "version": "[10.0.6, )"
+            "version": "[10.0.9, )"
           },
           "Microsoft.EntityFrameworkCore.Tools": {
             "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
             "suppressParent": "All",
             "target": "Package",
-            "version": "[10.0.6, )"
+            "version": "[10.0.9, )"
+          },
+          "Microsoft.OpenApi": {
+            "target": "Package",
+            "version": "[2.9.0, )"
           },
           "Npgsql.EntityFrameworkCore.PostgreSQL": {
             "target": "Package",
-            "version": "[10.0.1, )"
+            "version": "[10.0.2, )"
           },
           "Scalar.AspNetCore": {
             "target": "Package",
-            "version": "[2.14.1, )"
+            "version": "[2.16.10, )"
           }
         },
         "imports": [
@@ -2372,7 +2388,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/10.0.101/PortableRuntimeIdentifierGraph.json",
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.301/PortableRuntimeIdentifierGraph.json",
         "packagesToPrune": {
           "Microsoft.AspNetCore": "(,10.0.32767]",
           "Microsoft.AspNetCore.Antiforgery": "(,10.0.32767]",
